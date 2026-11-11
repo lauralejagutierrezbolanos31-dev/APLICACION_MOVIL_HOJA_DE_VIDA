@@ -23,7 +23,7 @@ export default function TarjetaEstudio({
       <Text style={styles.periodo}>{periodo}</Text>
 
       <Text style={[styles.estado, enCurso && styles.estadoEnCurso]}>
-        {enCurso ? 'En curso' : 'Finalizado'}
+        {enCurso ? 'En Curso' : 'Finalizado'}
       </Text>
     </View>
   );
@@ -58,11 +58,19 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   estado: {
-    color: '#8a7547',
+    color: '#ffffff',
+    backgroundColor: '#8a7547',
     fontWeight: 'bold',
     marginTop: 12,
+    paddingHorizontal: 13,
+    paddingVertical: 6,
+    borderRadius: 20,
+    alignSelf: 'flex-start',
+    overflow: 'hidden',
+    fontSize: 12,
   },
   estadoEnCurso: {
-    color: '#145c93',
+    backgroundColor: '#7846a8',
+    color: '#ffffff',
   },
 });

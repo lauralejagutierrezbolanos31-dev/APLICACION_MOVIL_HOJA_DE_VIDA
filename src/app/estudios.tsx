@@ -26,7 +26,13 @@ export default function Estudios() {
         institucion="Formación técnica"
         periodo="Finalizado en 2025"
         enCurso={false}
-      />
+          />
+          <TarjetaEstudio
+              nombre="Bachillerato académico"
+              institucion="Educación media"
+              periodo="Finalizado en 2025"
+              enCurso={false}
+/>
     </ScrollView>
   );
 }
