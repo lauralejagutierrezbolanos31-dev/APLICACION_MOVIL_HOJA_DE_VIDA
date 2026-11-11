@@ -21,10 +21,37 @@ export default function TarjetaHobby({
   icono,
 }: TarjetaHobbyProps) {
   const mostrarMensaje = () => {
+    let detalle = '';
+
+    switch (nombre) {
+      case 'Viajar':
+        detalle =
+          'Me gusta conocer nuevos lugares, descubrir paisajes, aprender sobre otras culturas y vivir experiencias diferentes. Viajar también me permite conocer más sobre Colombia.';
+        break;
+
+      case 'Aprender':
+        detalle =
+          'Disfruto adquirir nuevos conocimientos, investigar temas de mi interés y aprender cosas que me ayuden a crecer tanto personal como profesionalmente.';
+        break;
+
+      case 'Tecnología':
+        detalle =
+          'Me interesa explorar herramientas digitales, conocer nuevas tecnologías y desarrollar proyectos que me permitan fortalecer mis habilidades en programación.';
+        break;
+
+      case 'Compartir':
+        detalle =
+          'Me gusta compartir tiempo con las personas que aprecio, intercambiar ideas y disfrutar momentos especiales con familiares y amigos.';
+        break;
+
+      default:
+        detalle = descripcion;
+    }
+
     if (Platform.OS === 'web') {
-      window.alert(`${nombre}\n\n${descripcion}`);
+      window.alert(`${nombre}\n\n${detalle}`);
     } else {
-      Alert.alert(nombre, descripcion);
+      Alert.alert(nombre, detalle);
     }
   };
 
@@ -48,11 +75,11 @@ export default function TarjetaHobby({
 const styles = StyleSheet.create({
   card: {
     backgroundColor: '#ffffff',
-    borderRadius: 16,
-    padding: 16,
-    marginBottom: 15,
     flexDirection: 'row',
     alignItems: 'center',
+    padding: 16,
+    borderRadius: 15,
+    marginBottom: 14,
     elevation: 3,
   },
   icono: {
@@ -62,24 +89,26 @@ const styles = StyleSheet.create({
     backgroundColor: '#e4edf5',
     alignItems: 'center',
     justifyContent: 'center',
+    marginRight: 14,
   },
   informacion: {
     flex: 1,
-    marginLeft: 14,
   },
   nombre: {
     fontSize: 17,
     fontWeight: 'bold',
     color: '#145c93',
+    marginBottom: 5,
   },
   descripcion: {
-    color: '#666666',
     fontSize: 13,
-    marginTop: 5,
+    color: '#555555',
+    lineHeight: 19,
   },
   detalle: {
-    color: '#8a7547',
     fontSize: 12,
+    color: '#8a7547',
     marginTop: 7,
+    fontWeight: 'bold',
   },
 });
