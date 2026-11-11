@@ -1,5 +1,12 @@
 
-import { View, Text, StyleSheet, Pressable, Alert } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Pressable,
+  Alert,
+  Platform,
+} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 interface TarjetaHobbyProps {
@@ -13,11 +20,16 @@ export default function TarjetaHobby({
   descripcion,
   icono,
 }: TarjetaHobbyProps) {
+  const mostrarMensaje = () => {
+    if (Platform.OS === 'web') {
+      window.alert(`${nombre}\n\n${descripcion}`);
+    } else {
+      Alert.alert(nombre, descripcion);
+    }
+  };
+
   return (
-    <Pressable
-      style={styles.tarjeta}
-      onPress={() => Alert.alert(nombre, descripcion)}
-    >
+    <Pressable style={styles.card} onPress={mostrarMensaje}>
       <View style={styles.icono}>
         <Ionicons name={icono} size={30} color="#145c93" />
       </View>
@@ -34,7 +46,7 @@ export default function TarjetaHobby({
 }
 
 const styles = StyleSheet.create({
-  tarjeta: {
+  card: {
     backgroundColor: '#ffffff',
     borderRadius: 16,
     padding: 16,

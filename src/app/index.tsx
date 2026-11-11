@@ -1,7 +1,8 @@
 
-import { View, Text, StyleSheet, ScrollView, Alert } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { Ionicons } from '@expo/vector-icons';
+import MiBoton from '../components/MiBoton';
 
 export default function DatosPersonales() {
   return (
@@ -13,7 +14,10 @@ export default function DatosPersonales() {
       </View>
 
       <Text style={styles.nombre}>Laura Alejandra Gutiérrez Bolaños</Text>
-      <Text style={styles.titulo}>Aprendiz de Análisis y Desarrollo de Software</Text>
+
+      <Text style={styles.titulo}>
+        Aprendiz de Análisis y Desarrollo de Software
+      </Text>
 
       <View style={styles.card}>
         <Text style={styles.tituloSeccion}>Datos personales</Text>
@@ -35,24 +39,16 @@ export default function DatosPersonales() {
       </View>
 
       <View style={styles.botones}>
-        <Text
-          style={styles.boton}
-          onPress={() =>
-            Alert.alert('Contacto', 'Aquí podrás agregar tu correo electrónico.')
-          }
-        >
-          Contactar
-        </Text>
+  <MiBoton
+    titulo="Contactar"
+    mensaje="Puedes agregar aquí tu correo electrónico de contacto."
+  />
 
-        <Text
-          style={styles.boton}
-          onPress={() =>
-            Alert.alert('Perfil', 'Gracias por visitar mi hoja de vida.')
-          }
-        >
-          Más información
-        </Text>
-      </View>
+  <MiBoton
+    titulo="Más información"
+    mensaje="Gracias por visitar mi hoja de vida."
+  />
+</View>
     </ScrollView>
   );
 }
@@ -115,14 +111,5 @@ const styles = StyleSheet.create({
     width: '100%',
     marginTop: 22,
     gap: 12,
-  },
-  boton: {
-    backgroundColor: '#145c93',
-    color: '#ffffff',
-    textAlign: 'center',
-    padding: 14,
-    borderRadius: 10,
-    overflow: 'hidden',
-    fontWeight: 'bold',
   },
 });

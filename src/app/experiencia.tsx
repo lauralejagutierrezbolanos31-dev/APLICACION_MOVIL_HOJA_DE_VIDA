@@ -1,7 +1,7 @@
 
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-import { Ionicons } from '@expo/vector-icons';
+import TarjetaExperiencia from '../components/TarjetaExperiencia';
 
 export default function Experiencia() {
   return (
@@ -9,26 +9,17 @@ export default function Experiencia() {
       <StatusBar style="dark" />
 
       <Text style={styles.titulo}>Mi experiencia</Text>
+
       <Text style={styles.subtitulo}>
         Mis conocimientos y habilidades para el mundo laboral.
       </Text>
 
-      <View style={styles.card}>
-        <View style={styles.icono}>
-          <Ionicons name="briefcase-outline" size={32} color="#145c93" />
-        </View>
-
-        <Text style={styles.nombre}>Experiencia en formación</Text>
-
-        <Text style={styles.institucion}>
-          Proyectos académicos - SENA
-        </Text>
-
-        <Text style={styles.descripcion}>
-          Durante mi formación he participado en actividades y proyectos
-          relacionados con el análisis y desarrollo de software.
-        </Text>
-      </View>
+      <TarjetaExperiencia
+        cargo="Experiencia en formación"
+        empresa="Proyectos académicos - SENA"
+        periodo="Durante mi formación"
+        descripcion="Durante mi formación he participado en actividades y proyectos relacionados con el análisis y desarrollo de software."
+      />
 
       <View style={styles.card}>
         <Text style={styles.nombre}>Conocimientos técnicos</Text>
@@ -78,29 +69,11 @@ const styles = StyleSheet.create({
     marginBottom: 18,
     elevation: 3,
   },
-  icono: {
-    backgroundColor: '#e4edf5',
-    width: 58,
-    height: 58,
-    borderRadius: 30,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 15,
-  },
   nombre: {
     fontSize: 18,
     fontWeight: 'bold',
     color: '#145c93',
     marginBottom: 10,
-  },
-  institucion: {
-    color: '#8a7547',
-    fontWeight: 'bold',
-    marginBottom: 10,
-  },
-  descripcion: {
-    color: '#666666',
-    lineHeight: 22,
   },
   habilidad: {
     fontSize: 15,
