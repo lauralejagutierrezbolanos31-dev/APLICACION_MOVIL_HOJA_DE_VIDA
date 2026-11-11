@@ -21,6 +21,21 @@ export default function DatosPersonales() {
         Aprendiz de Análisis y Desarrollo de Software
       </Text>
 
+      {/* Perfil personal */}
+      <View style={styles.card}>
+        <Text style={styles.tituloSeccion}>Mi perfil</Text>
+
+        <Text style={styles.valor}>
+          Soy una persona responsable, dedicada y comprometida con mi
+          aprendizaje. Me gusta trabajar en equipo, compartir ideas y
+          aprender cosas nuevas. Actualmente estoy formándome como
+          tecnóloga en Análisis y Desarrollo de Software en el SENA.
+          Me interesa la tecnología y la programación, y siempre busco
+          mejorar mis habilidades y adquirir nuevos conocimientos.
+        </Text>
+      </View>
+
+      {/* Datos personales */}
       <View style={styles.card}>
         <Text style={styles.tituloSeccion}>Datos personales</Text>
 
@@ -40,6 +55,7 @@ export default function DatosPersonales() {
         </Text>
       </View>
 
+      {/* Botones de contacto */}
       <View style={styles.botones}>
         <MiBoton
           titulo="Mi correo electrónico"
@@ -99,6 +115,7 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     padding: 20,
     elevation: 3,
+    marginBottom: 18,
   },
   tituloSeccion: {
     fontSize: 19,
@@ -119,7 +136,7 @@ const styles = StyleSheet.create({
   },
   botones: {
     width: '100%',
-    marginTop: 22,
+    marginTop: 5,
     gap: 12,
   },
 });
