@@ -40,9 +40,10 @@ export default function DatosPersonales() {
 
       <View style={styles.botones}>
   <MiBoton
-    titulo="Contactar"
-    mensaje="Puedes agregar aquí tu correo electrónico de contacto."
-  />
+  titulo="Contactar"
+  mensaje="Escríbeme por correo electrónico."
+  correo="lauralejagutierrezbolanos31@gmail.com"
+/>
 
   <MiBoton
     titulo="Más información"

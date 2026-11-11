@@ -1,3 +1,4 @@
+
 import {
   Pressable,
   Text,
@@ -5,15 +6,33 @@ import {
   Alert,
   Platform,
 } from 'react-native';
+import * as Clipboard from 'expo-clipboard';
 
 interface MiBotonProps {
   titulo: string;
   mensaje: string;
+  correo?: string;
 }
 
-export default function MiBoton({ titulo, mensaje }: MiBotonProps) {
-  const mostrarMensaje = () => {
-    if (Platform.OS === 'web') {
+export default function MiBoton({
+  titulo,
+  mensaje,
+  correo,
+}: MiBotonProps) {
+  const mostrarMensaje = async () => {
+    if (correo) {
+      if (Platform.OS === 'web') {
+        window.alert(`Puedes contactarme en:\n\n${correo}`);
+      } else {
+        Alert.alert('Mi correo electrónico', correo, [
+          {
+            text: 'Copiar correo',
+            onPress: () => Clipboard.setStringAsync(correo),
+          },
+          { text: 'Cerrar' },
+        ]);
+      }
+    } else if (Platform.OS === 'web') {
       window.alert(`${titulo}\n\n${mensaje}`);
     } else {
       Alert.alert(titulo, mensaje);
@@ -21,10 +40,7 @@ export default function MiBoton({ titulo, mensaje }: MiBotonProps) {
   };
 
   return (
-    <Pressable
-      style={styles.boton}
-      onPress={mostrarMensaje}
-    >
+    <Pressable style={styles.boton} onPress={mostrarMensaje}>
       <Text style={styles.texto}>{titulo}</Text>
     </Pressable>
   );
