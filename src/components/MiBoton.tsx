@@ -12,30 +12,44 @@ interface MiBotonProps {
   titulo: string;
   mensaje: string;
   correo?: string;
+  telefono?: string;
+  github?: string;
 }
 
 export default function MiBoton({
   titulo,
   mensaje,
   correo,
+  telefono,
+  github,
 }: MiBotonProps) {
   const mostrarMensaje = async () => {
+    let detalle = mensaje;
+
     if (correo) {
-      if (Platform.OS === 'web') {
-        window.alert(`Puedes contactarme en:\n\n${correo}`);
-      } else {
-        Alert.alert('Mi correo electrónico', correo, [
-          {
-            text: 'Copiar correo',
-            onPress: () => Clipboard.setStringAsync(correo),
-          },
-          { text: 'Cerrar' },
-        ]);
-      }
-    } else if (Platform.OS === 'web') {
-      window.alert(`${titulo}\n\n${mensaje}`);
+      detalle = `Mi correo electrónico:\n${correo}`;
+    } else if (telefono) {
+      detalle = `Mi número de celular:\n${telefono}`;
+    } else if (github) {
+      detalle = `Mi perfil de GitHub:\n${github}`;
+    }
+
+    if (Platform.OS === 'web') {
+      window.alert(`${titulo}\n\n${detalle}`);
     } else {
-      Alert.alert(titulo, mensaje);
+      const dato = correo || telefono || github;
+
+      Alert.alert(titulo, detalle, [
+        ...(dato
+          ? [
+              {
+                text: 'Copiar',
+                onPress: () => Clipboard.setStringAsync(dato),
+              },
+            ]
+          : []),
+        { text: 'Cerrar' },
+      ]);
     }
   };
 

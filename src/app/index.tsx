@@ -13,7 +13,9 @@ export default function DatosPersonales() {
         <Ionicons name="person" size={65} color="#145c93" />
       </View>
 
-      <Text style={styles.nombre}>Laura Alejandra Gutiérrez Bolaños</Text>
+      <Text style={styles.nombre}>
+        Laura Alejandra Gutiérrez Bolaños
+      </Text>
 
       <Text style={styles.titulo}>
         Aprendiz de Análisis y Desarrollo de Software
@@ -22,7 +24,7 @@ export default function DatosPersonales() {
       <View style={styles.card}>
         <Text style={styles.tituloSeccion}>Datos personales</Text>
 
-        <Text style={styles.etiqueta}>Formación</Text>
+        <Text style={styles.etiqueta}>Formación actual</Text>
         <Text style={styles.valor}>
           Tecnólogo en Análisis y Desarrollo de Software - SENA
         </Text>
@@ -39,17 +41,24 @@ export default function DatosPersonales() {
       </View>
 
       <View style={styles.botones}>
-  <MiBoton
-  titulo="Contactar"
-  mensaje="Escríbeme por correo electrónico."
-  correo="lauralejagutierrezbolanos31@gmail.com"
-/>
+        <MiBoton
+          titulo="Mi correo electrónico"
+          mensaje="Contáctame por correo."
+          correo="lauralejagutierrezbolanos31@gmail.com"
+        />
 
-  <MiBoton
-    titulo="Más información"
-    mensaje="Gracias por visitar mi hoja de vida."
-  />
-</View>
+        <MiBoton
+          titulo="Mi número de celular"
+          mensaje="Puedes comunicarte conmigo."
+          telefono="3105713966"
+        />
+
+        <MiBoton
+          titulo="Mi GitHub"
+          mensaje="Conoce mis proyectos."
+          github="https://github.com/lauralejagutierrezbolanos31-dev"
+        />
+      </View>
     </ScrollView>
   );
 }
